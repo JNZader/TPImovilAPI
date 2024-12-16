@@ -23,4 +23,24 @@ public class MapperConfig {
     }
     */
 
+    @Bean
+    public GenericMapper<Comentario,ComentarioDTO> comentarioMapper(){
+        return new GenericMapper<>(Comentario.class, ComentarioDTO.class);
+    }
+
+    @Bean
+    public GenericMapper<Imagen,ImagenDTO> imagenMapper(){
+        return new GenericMapper<>(Imagen.class, ImagenDTO.class);
+    }
+
+    @Bean
+    public GenericMapper<Post,PostDTO> postMapper(){
+        return new GenericMapper<>(Post.class, PostDTO.class);
+    }
+
+    @Bean
+    public GenericMapper<Usuario,UsuarioDTO> usuarioMapper(){
+        return new GenericMapper<>(Usuario.class, UsuarioDTO.class);
+    }
+
 }
