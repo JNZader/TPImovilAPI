@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 import java.util.Set;
 
-public class ImagenDTO {
+public class ImagenDTO extends BaseDTO{
     @NotBlank
     @Size(max = 255)
     private String url;

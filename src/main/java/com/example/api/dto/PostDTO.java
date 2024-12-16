@@ -3,10 +3,20 @@ package com.example.api.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
 
-public class PostDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+@Getter
+@Setter
+public class PostDTO extends BaseDTO{
     @NotBlank
     @Size(max = 100)
     private String titulo;
