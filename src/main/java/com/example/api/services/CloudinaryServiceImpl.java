@@ -2,7 +2,7 @@ package com.example.api.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import org.springframework.beans.factory.annotation.Value;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,23 +16,15 @@ import java.util.Objects;
 @Service
 public class CloudinaryServiceImpl implements CloudinaryService {
 
-    @Value("${CLOUDINARY_CLOUD_NAME}")
-    private String cloudName;
-
-    @Value("${CLOUDINARY_API_KEY}")
-    private String apiKey;
-
-    @Value("${CLOUDINARY_API_SECRET}")
-    private String apiSecret;
-
     private final Cloudinary cloudinary;
 
     public CloudinaryServiceImpl() {
+        Dotenv dotenv = Dotenv.load(); // Carga las variables de entorno desde .env
         cloudinary = new Cloudinary(
                 ObjectUtils.asMap(
-                        "cloud_name", cloudName,
-                        "api_key", apiKey,
-                        "api_secret", apiSecret
+                        "cloud_name", dotenv.get("CLOUDINARY_CLOUD_NAME"),
+                        "api_key", dotenv.get("CLOUDINARY_API_KEY"),
+                        "api_secret", dotenv.get("CLOUDINARY_API_SECRET")
                 )
         );
     }
