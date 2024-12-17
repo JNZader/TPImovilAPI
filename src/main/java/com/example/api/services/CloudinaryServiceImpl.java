@@ -2,6 +2,7 @@ package com.example.api.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,20 +10,31 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 @Service
-public class CloudinaryServiceImpl implements CloudinaryService{
+public class CloudinaryServiceImpl implements CloudinaryService {
+
+    @Value("${CLOUDINARY_CLOUD_NAME}")
+    private String cloudName;
+
+    @Value("${CLOUDINARY_API_KEY}")
+    private String apiKey;
+
+    @Value("${CLOUDINARY_API_SECRET}")
+    private String apiSecret;
+
     private final Cloudinary cloudinary;
 
     public CloudinaryServiceImpl() {
-        Map<String,String> valuesMap=new HashMap<>();
-        valuesMap.put("cloud_name","");
-        valuesMap.put("api_key","");
-        valuesMap.put("api_secret","");
-        cloudinary = new Cloudinary(valuesMap);
+        cloudinary = new Cloudinary(
+                ObjectUtils.asMap(
+                        "cloud_name", cloudName,
+                        "api_key", apiKey,
+                        "api_secret", apiSecret
+                )
+        );
     }
 
     private File convert(MultipartFile multipartFile) throws IOException{
