@@ -5,7 +5,9 @@ import com.example.api.entities.Usuario;
 import com.example.api.mappers.GenericMapper;
 import com.example.api.repositories.BaseRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, UsuarioDTO,Long>implements UsuarioService {
     /**
      * Constructor que inicializa el repositorio base, el mapeador y el EntityManager.

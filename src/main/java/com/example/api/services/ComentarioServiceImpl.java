@@ -5,7 +5,9 @@ import com.example.api.entities.Comentario;
 import com.example.api.mappers.GenericMapper;
 import com.example.api.repositories.BaseRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ComentarioServiceImpl extends BaseServiceImpl<Comentario, ComentarioDTO, Long> implements ComentarioService {
     /**
      * Constructor que inicializa el repositorio base, el mapeador y el EntityManager.

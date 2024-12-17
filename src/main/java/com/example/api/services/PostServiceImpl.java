@@ -5,7 +5,9 @@ import com.example.api.entities.Post;
 import com.example.api.mappers.GenericMapper;
 import com.example.api.repositories.BaseRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PostServiceImpl extends BaseServiceImpl<Post, PostDTO,Long> implements PostService {
     /**
      * Constructor que inicializa el repositorio base, el mapeador y el EntityManager.

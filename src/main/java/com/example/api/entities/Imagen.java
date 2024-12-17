@@ -23,12 +23,15 @@ import java.util.Set;
 @Audited
 public class Imagen extends Base{
     @Column
-    private String url;
+    private String name;
+
+    @Column
+    private String imageUrl;
+
+    @Column
+    private String imageId;
 
     @Column(columnDefinition = "text")
     private String descripcion;
-
-    @ManyToMany(mappedBy = "postImagenes")
-    private Set<Post> postImagen;
 
 }

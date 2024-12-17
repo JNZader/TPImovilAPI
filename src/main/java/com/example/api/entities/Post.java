@@ -36,8 +36,6 @@ public class Post extends Base {
     @OneToMany(mappedBy = "post")
     private Set<Comentario> postComentarios;
     @ManyToMany
-    @JoinTable(name = "PostImagen",
-            joinColumns = @JoinColumn(name = "postId"),
-            inverseJoinColumns = @JoinColumn(name = "imagenId"))
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private Set<Imagen> postImagenes;
 }

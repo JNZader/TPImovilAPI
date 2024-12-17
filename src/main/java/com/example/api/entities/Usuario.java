@@ -26,7 +26,7 @@ public class Usuario extends Base{
     @Column
     private String redSocial;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_foto_perfil",
             referencedColumnName = "id")
     private Imagen fotoPerfil;

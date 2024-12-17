@@ -9,13 +9,18 @@ import java.util.Set;
 public class ImagenDTO extends BaseDTO{
     @NotBlank
     @Size(max = 255)
-    private String url;
+    private String name;
+
+    @NotBlank
+    @Size(max = 255)
+    private String imageUrl;
+
+    @NotBlank
+    @Size(max = 255)
+    private String imageId;
 
     @NotBlank
     @Size(max = 255)
     private String descripcion;
-
-    @NotNull
-    private Set<PostDTO> postImagen;
 
 }

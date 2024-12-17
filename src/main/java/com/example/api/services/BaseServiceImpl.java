@@ -5,24 +5,14 @@ import com.example.api.mappers.GenericMapper;
 import com.example.api.repositories.BaseRepository;
 import com.example.api.utils.OperationFailedException;
 import com.example.api.utils.ResourceNotFoundException;
-import com.example.api.utils.ValidationException;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
-import org.springframework.beans.SimpleTypeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Implementación abstracta del servicio base que proporciona operaciones
